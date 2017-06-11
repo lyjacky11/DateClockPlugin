@@ -7,7 +7,7 @@ var clockPlugin = function () {};
 
 clockPlugin.prototype.start = function () {
 	BdApi.clearCSS("clockPluginCss");
-	BdApi.injectCSS("clockPluginCss", '#clockPluginClock { position:absolute; color:#FFF; background:#333333; padding:0 5px 0 5px; min-width:55px; max-width:55px; z-index:100; }');
+	BdApi.injectCSS("clockPluginCss", '#clockPluginClock { position:absolute; color:#FFF; background:#00FFFFFF; padding:0 5px 0 5px; min-width:60px; max-width:60px; z-index:100; }');
 	var self = this;
 	this.clock = $("<div/>", { id: "clockPluginClock" });
 	$("body").append(this.clock);
@@ -53,9 +53,9 @@ clockPlugin.prototype.start = function () {
 		if(h == 0) {
 			h = 12;
 		}
-		var date = ddd + "&nbsp" + [mm,dd,yyyy].join("/");
-		var current_time = [h,m,s].join(":") + "&nbsp" + suffix;
-		self.clock.html(date.fontsize(1) + " " + current_time.fontsize(2));
+		var date = ddd + "&nbsp&nbsp" + [mm,dd,yyyy].join("/");
+		var current_time = [h,m,s].join(":") + "&nbsp";
+		self.clock.html(date.fontsize(1) + " " + current_time.fontsize(2) + suffix.fontsize(1));
 	};
 	this.ticktock12();
 	this.interval = setInterval(this.ticktock12, 10);
