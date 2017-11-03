@@ -1,7 +1,4 @@
 //META{"name":"clockPlugin"}*//
-/*
- * Customized plugin by @lyjacky11
- */
 
 var clockPlugin = function () {};
 
@@ -33,40 +30,39 @@ clockPlugin.prototype.start = function () {
 		var s = self.pad(d.getSeconds());
 		
 		var weekday = new Array(7);
-		weekday[0] = "Sun";
-		weekday[1] = "Mon";
-		weekday[2] = "Tue";
-		weekday[3] = "Wed";
-		weekday[4] = "Thu";
-		weekday[5] = "Fri";
-		weekday[6] = "Sat";
+		weekday[0] = "Sunday";
+		weekday[1] = "Monday";
+		weekday[2] = "Tuesday";
+		weekday[3] = "Wednesday";
+		weekday[4] = "Thursday";
+		weekday[5] = "Friday";
+		weekday[6] = "Saturday";
 		
 		var ddd = weekday[d.getDay()];
 		var mm = d.getMonth() + 1;
 		var dd = d.getDate();
+		if (dd < 10)
+			dd = "0" + dd;
 		var yyyy = d.getFullYear();
 
 		if(h >= 12) {
 			h -= 12;
 			suffix = "PM";
 		}
-		if(h == 0) {
+		if(h == 0)
 			h = 12;
-		}
-		var date = ddd + "&nbsp&nbsp" + [mm,dd,yyyy].join("/");
-		var current_time = [h,m,s].join(":") + "&nbsp";
-		self.clock.html(date.fontsize(1) + " " + current_time.fontsize(2) + suffix.fontsize(1));
+		
+		var date = [mm,dd,yyyy].join("/");
+		var current_time = [h,m,s].join(":");
+		self.clock.html(date.fontsize(1) + " " + current_time.fontsize(2) + "&nbsp" + suffix.fontsize(1));
 	};
 	this.ticktock12();
 	this.interval = setInterval(this.ticktock12, 10);
 };
 
-clockPlugin.prototype.load = function () {
+clockPlugin.prototype.load = function () {};
 
-};
-
-clockPlugin.prototype.unload = function () {}
-;
+clockPlugin.prototype.unload = function () {};
 
 clockPlugin.prototype.stop = function () {
 	BdApi.clearCSS("clockPluginCss");
@@ -74,17 +70,11 @@ clockPlugin.prototype.stop = function () {
 	this.clock.remove();
 };
 
-clockPlugin.prototype.onMessage = function () {
+clockPlugin.prototype.onMessage = function () {};
 
-};
+clockPlugin.prototype.onSwitch = function () {};
 
-clockPlugin.prototype.onSwitch = function () {
-
-};
-
-clockPlugin.prototype.observer = function (e) {
-
-};
+clockPlugin.prototype.observer = function (e) {};
 
 clockPlugin.prototype.getSettingsPanel = function () {
     return "";
