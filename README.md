@@ -2,7 +2,7 @@
 ## Adds a date and clock widget to Discord
 Customized plugin by @lyjacky11
 
-Download here: [DateClockPlugin - BetterDiscord](https://github.com/lyjacky11/DateClockPlugin/blob/master/DateClock.plugin.js)
+Download here: [DateClockPlugin - BetterDiscord](https://github.com/lyjacky11/DateClockPlugin/raw/master/DateClock.plugin.js)
 
 ### NOTE: [BetterDiscord](https://betterdiscord.net/home/) is required for this plugin to work!
 
