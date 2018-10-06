@@ -40,6 +40,8 @@ clockPlugin.prototype.start = function () {
 		
 		var ddd = weekday[d.getDay()];
 		var mm = d.getMonth() + 1;
+		if (mm < 10)
+			mm = "0" + mm;
 		var dd = d.getDate();
 		if (dd < 10)
 			dd = "0" + dd;
@@ -57,7 +59,7 @@ clockPlugin.prototype.start = function () {
 		self.clock.html(date.fontsize(1) + " " + current_time.fontsize(2) + "&nbsp" + suffix.fontsize(1));
 	};
 	this.ticktock12();
-	this.interval = setInterval(this.ticktock12, 10);
+	this.interval = setInterval(this.ticktock12, 50);
 };
 
 clockPlugin.prototype.load = function () {};
